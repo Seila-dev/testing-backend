@@ -6,8 +6,12 @@ const prisma = new PrismaClient()
 
 
 const app = express()
+app.use(cors({
+    origin: "https://testing-backend-8qik.onrender.com"
+}
+))
+app.options('*', cors())
 app.use(express.json())
-app.use(cors())
 
 app.post('/usuarios', async (req, res) => {
 
